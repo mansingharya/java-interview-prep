@@ -1,4 +1,4 @@
-package DSA.Graph;
+package DSA.Graphs;
 
 
 // https://leetcode.com/problems/number-of-islands/description/

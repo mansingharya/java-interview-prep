@@ -1,4 +1,4 @@
-package DSA.Graph;
+package DSA.Graphs;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
