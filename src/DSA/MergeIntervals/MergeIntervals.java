@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 
-// https://leetcode.com/problems/merge-intervals/
+// 1. https://leetcode.com/problems/merge-intervals/
 
 public class MergeIntervals {
 
@@ -22,6 +22,7 @@ public class MergeIntervals {
 
         for (int i=1; i<intervals.length; i++) {
 
+            // previous.end >= current.start -> merge it
             if (previous[1] >= intervals[i][0]) {
                 previous[1] = Math.max(previous[1], intervals[i][1]);
 

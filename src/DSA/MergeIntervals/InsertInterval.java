@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-// https://leetcode.com/problems/insert-interval/description/
+// 2. https://leetcode.com/problems/insert-interval/description/
 
 public class InsertInterval {
 
@@ -15,12 +15,14 @@ public class InsertInterval {
         int i = 0;
 
         // No overlap before new interval --> Simply add interval.
+        // current.end < new.start --> Keep Going
         while (i < intervals.length && intervals[i][1] < newInterval[0]) {
             ansList.add(intervals[i]);
             i++;
         }
 
         // Merge overlapping intervals.
+        // current.start <= new.end --> continue merge overlapping
         while (i < intervals.length && intervals[i][0] <= newInterval[1]) {
             newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
             newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
