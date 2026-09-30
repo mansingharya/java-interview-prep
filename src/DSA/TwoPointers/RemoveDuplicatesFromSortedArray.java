@@ -2,6 +2,9 @@ package DSA.TwoPointers;
 
 import java.util.Arrays;
 
+
+// 2. https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
 public class RemoveDuplicatesFromSortedArray {
 
     public static int removeDuplicates1(int[] nums) {

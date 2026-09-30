@@ -3,7 +3,7 @@ package DSA.TwoPointers;
 import java.util.Arrays;
 
 
-// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
+// 5. https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 
 public class TwoSumSortedArray {
 

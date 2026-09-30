@@ -1,9 +1,10 @@
 package DSA.TwoPointers;
 
-
 import java.util.Arrays;
 
-// https://leetcode.com/problems/sort-colors/description/
+
+// 7. https://leetcode.com/problems/sort-colors/description/
+
 public class DutchNationalFlag {
 
     static void swap(int[] nums, int i, int j) {

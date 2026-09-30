@@ -3,7 +3,8 @@ package DSA.TwoPointers;
 import java.util.Arrays;
 
 
-// https://leetcode.com/problems/trapping-rain-water/description/
+// 9. https://leetcode.com/problems/trapping-rain-water/description/
+
 public class TrappingRainWater {
 
     static public int trap(int[] height) {

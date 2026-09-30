@@ -6,9 +6,32 @@ import java.util.Map;
 import java.util.Set;
 
 
-// https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+// 3. https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
 public class LongestSubstringWithoutRepeatingCharacters {
+
+    // Better Solution
+    static int lengthOfLongestSubstringUsingSet(String s) {
+        int maxLength = 0;
+
+        int left = 0;
+        Set<Character> charSet = new HashSet<>();
+
+        for (int right=0; right<s.length(); right++) {
+            Character rightChar = s.charAt(right);
+
+            while (charSet.contains(rightChar)) {
+                charSet.remove(s.charAt(left));
+                left++;
+            }
+
+            charSet.add(rightChar);
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+
 
     static int lengthOfLongestSubstringUsingMap(String s) {
         int maxLength = 0;
@@ -31,28 +54,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
             maxLength = Math.max(maxLength, right - left + 1);
             charToIndex.put(rightChar, right);
-        }
-
-        return maxLength;
-    }
-
-
-    static int lengthOfLongestSubstringUsingSet(String s) {
-        int maxLength = 0;
-
-        int left = 0;
-        Set<Character> charSet = new HashSet<>();
-
-        for (int right=0; right<s.length(); right++) {
-            Character rightChar = s.charAt(right);
-
-            while (charSet.contains(rightChar)) {
-                charSet.remove(s.charAt(left));
-                left++;
-            }
-
-            charSet.add(rightChar);
-            maxLength = Math.max(maxLength, right - left + 1);
         }
 
         return maxLength;

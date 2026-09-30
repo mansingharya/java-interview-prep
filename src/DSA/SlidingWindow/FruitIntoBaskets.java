@@ -5,12 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-// https://leetcode.com/problems/fruit-into-baskets/description/
+// 5. https://leetcode.com/problems/fruit-into-baskets/description/
 
 public class FruitIntoBaskets {
 
     static int totalFruit(int[] fruits) {
-
         int maxFruits = 0;
 
         int left = 0;

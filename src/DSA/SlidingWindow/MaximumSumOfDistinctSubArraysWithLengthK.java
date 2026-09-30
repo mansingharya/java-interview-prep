@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-// https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
+// 8. https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
+
 public class MaximumSumOfDistinctSubArraysWithLengthK {
 
     static long maximumSubarraySum(int [] nums, int k) {

@@ -1,8 +1,36 @@
 package DSA.SlidingWindow;
 
 
-//https://leetcode.com/problems/longest-repeating-character-replacement/description/
+// 9. https://leetcode.com/problems/longest-repeating-character-replacement/description/
+
 public class LongestRepeatingCharacterReplacement {
+
+
+    static int characterReplacementOptimal(String s, int k) {
+        int maxLen = 0;
+
+        int left = 0;
+        int maxFreq = 0;
+        int [] freq = new int[26];
+
+        for (int right = 0; right < s.length(); right++) {
+
+            int rightIdx = s.charAt(right) - 'A';
+            freq[rightIdx]++;
+
+            maxFreq = Math.max(maxFreq, freq[rightIdx]);
+
+            if ((right - left + 1) - maxFreq > k) {
+                freq[s.charAt(left) - 'A'] --;
+                left++;
+            }
+
+            maxLen = Math.max(maxLen, right-left+1);
+        }
+
+        return maxLen;
+    }
+
 
     static int characterReplacement(String s, int k) {
         int maxLength=0;
@@ -37,6 +65,7 @@ public class LongestRepeatingCharacterReplacement {
         System.out.println("String: " + s);
         System.out.println("Can replace at max: " + k + " chars");
         System.out.println("Max Length after replacement: " + characterReplacement(s, k));
+        System.out.println("Max Length after replacement: " + characterReplacementOptimal(s, k));
 
         s = "AABABBA";
         k = 1;
@@ -44,6 +73,7 @@ public class LongestRepeatingCharacterReplacement {
         System.out.println("String: " + s);
         System.out.println("Can replace at max: " + k + " chars");
         System.out.println("Max Length after replacement: " + characterReplacement(s, k));
+        System.out.println("Max Length after replacement: " + characterReplacementOptimal(s, k));
 
     }
 

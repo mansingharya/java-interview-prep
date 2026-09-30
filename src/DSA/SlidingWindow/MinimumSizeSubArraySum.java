@@ -3,9 +3,9 @@ package DSA.SlidingWindow;
 import java.util.Arrays;
 
 
-// https://leetcode.com/problems/minimum-size-subarray-sum/description/
-public class MinimumSizeSubArraySum {
+// 4. https://leetcode.com/problems/minimum-size-subarray-sum/description/
 
+public class MinimumSizeSubArraySum {
 
     static int minSubArrayLen(int target, int[] nums) {
         int minLength = Integer.MAX_VALUE;
@@ -25,11 +25,9 @@ public class MinimumSizeSubArraySum {
 
                 left++;
             }
-
         }
 
         // System.gc();
-
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
 

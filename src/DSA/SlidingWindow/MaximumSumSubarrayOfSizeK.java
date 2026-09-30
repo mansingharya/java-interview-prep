@@ -2,6 +2,9 @@ package DSA.SlidingWindow;
 
 import java.util.Arrays;
 
+
+// 1. https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/description/
+
 public class MaximumSumSubarrayOfSizeK {
 
     static public int maxSumSubarray(int[] nums, int k) {
@@ -14,7 +17,6 @@ public class MaximumSumSubarrayOfSizeK {
         int maxSum = Integer.MIN_VALUE;
 
         for (int right = 0; right < nums.length; right++) {
-
             currentSum += nums[right];
 
             if (right - left + 1 == k) {
@@ -23,7 +25,6 @@ public class MaximumSumSubarrayOfSizeK {
                 currentSum -= nums[left];
                 left++;
             }
-
         }
 
         return maxSum;

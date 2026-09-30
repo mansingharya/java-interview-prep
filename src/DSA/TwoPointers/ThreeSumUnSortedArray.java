@@ -3,7 +3,8 @@ package DSA.TwoPointers;
 import java.util.*;
 
 
-// https://leetcode.com/problems/3sum/description/
+// 8. https://leetcode.com/problems/3sum/description/
+
 public class ThreeSumUnSortedArray {
 
     static public List<List<Integer>> threeSumBest(int[] nums) {
@@ -24,7 +25,13 @@ public class ThreeSumUnSortedArray {
 
                 int sum = nums[i] + nums[left] + nums[right];
 
-                if (sum == 0) {
+                if (sum < 0) {
+                    left++;
+
+                } else if (sum > 0) {
+                    right--;
+
+                } else {
                     List<Integer> listFound = Arrays.asList(nums[i], nums[left], nums[right]);
                     // Collections.sort(listFound); // We can ignore this as well since we are moving to unique elements.
                     ans.add(listFound);
@@ -39,18 +46,13 @@ public class ThreeSumUnSortedArray {
 
                     left++;
                     right--;
-
-                } else if (sum < 0) {
-                    left ++;
-
-                } else {
-                    right--;
                 }
             }
         }
 
         return new ArrayList<>(ans);
     }
+
 
     static public List<List<Integer>> threeSumSecondBest(int[] nums) {
         Set<List<Integer>> ans = new HashSet<>();
