@@ -5,12 +5,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 
+// 5. https://leetcode.com/problems/meeting-rooms-ii/description/
+
 public class MeetingRooms2 {
 
-    static int minMeetingRooms1(int[][] intervals) {
-
-        ArrayList<Integer> startList = new ArrayList<>();
-        ArrayList<Integer> endList = new ArrayList<>();
+    static int minMeetingRoomsEasy(int [][] intervals) {
+        ArrayList<Integer> startList = new ArrayList<>(intervals.length);
+        ArrayList<Integer> endList = new ArrayList<>(intervals.length);
 
         for (int[] interval : intervals) {
             startList.add(interval[0]);
@@ -18,26 +19,29 @@ public class MeetingRooms2 {
         }
 
         startList.sort(Comparator.naturalOrder());
-        System.out.println("Meeting start list: " + startList);
-
         endList.sort(Comparator.naturalOrder());
-        System.out.println("Meeting  end  list: " + endList);
 
-        int maxRooms = 0;
-        int onGoingMeeting = 0;
-
-        int startIdx = 0;
-        int endIdx = 0;
+        int startIdx = 0, endIdx = 0;
+        int rooms = 0, maxRooms = 0;
 
         while (startIdx < intervals.length) {
 
-            //if (startList.add(startIdx) )
+            // Meeting started, room occupied
+            if (startList.get(startIdx) < endList.get(endIdx)) {
+                startIdx ++;
+                rooms ++;
 
+            } else { // Meeting ends, room gets free
+                endIdx ++;
+                rooms --;
+            }
+
+            maxRooms = Math.max(maxRooms, rooms);
         }
-
 
         return maxRooms;
     }
+
 
     static int minMeetingRooms(int[][] intervals) {
 
@@ -59,10 +63,11 @@ public class MeetingRooms2 {
         int rooms = 0;
         for (int startIdx = 0; startIdx < intervals.length; startIdx++) {
 
+            // Meeting Started, Room Needed.
             if (startList.get(startIdx) < endList.get(endIdx)) {
                 rooms++;
 
-            } else {
+            } else { // Meeting Ended, Room gets free.
                 endIdx++;
             }
         }
@@ -77,24 +82,28 @@ public class MeetingRooms2 {
         System.out.println();
         System.out.println("Initial intervals are: " + Arrays.deepToString(intervals));
         System.out.println("Minimum meeting rooms required: " + minMeetingRooms(intervals));
+        System.out.println("Minimum meeting rooms required: " + minMeetingRoomsEasy(intervals));
 
 
         intervals = new int[][] {{4,6}, {15,18}, {2,3}, {1,2}};
         System.out.println();
         System.out.println("Initial intervals are: " + Arrays.deepToString(intervals));
         System.out.println("Minimum meeting rooms required: " + minMeetingRooms(intervals));
+        System.out.println("Minimum meeting rooms required: " + minMeetingRoomsEasy(intervals));
 
 
         intervals = new int[][] {{1,100},{2,3},{3,4}};
         System.out.println();
         System.out.println("Initial intervals are: " + Arrays.deepToString(intervals));
         System.out.println("Minimum meeting rooms required: " + minMeetingRooms(intervals));
+        System.out.println("Minimum meeting rooms required: " + minMeetingRoomsEasy(intervals));
 
 
         intervals = new int[][] {{1,2},{1,3},{1,2}};
         System.out.println();
         System.out.println("Initial intervals are: " + Arrays.deepToString(intervals));
         System.out.println("Minimum meeting rooms required: " + minMeetingRooms(intervals));
+        System.out.println("Minimum meeting rooms required: " + minMeetingRoomsEasy(intervals));
 
     }
 

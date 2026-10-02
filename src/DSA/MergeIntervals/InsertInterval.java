@@ -15,7 +15,7 @@ public class InsertInterval {
         int i = 0;
 
         // No overlap before new interval --> Simply add interval.
-        // current.end < new.start --> Keep Going
+        // current.end < new.start --> Keep going until overlapping
         while (i < intervals.length && intervals[i][1] < newInterval[0]) {
             ansList.add(intervals[i]);
             i++;

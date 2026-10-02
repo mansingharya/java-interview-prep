@@ -3,6 +3,9 @@ package DSA.MergeIntervals;
 import java.util.Arrays;
 import java.util.Comparator;
 
+
+// 4. https://leetcode.com/problems/meeting-rooms/description/
+
 public class MeetingRooms1 {
 
     static boolean canAttendMeetings(int[][] intervals) {
@@ -14,6 +17,7 @@ public class MeetingRooms1 {
 
         for (int i=1; i<intervals.length; i++) {
 
+            // previous.end > current.start
             if (intervals[i-1][1] > intervals[i][0]) {
                 return false;
             }
