@@ -28,7 +28,7 @@ public class TopKFrequentElements {
 
 
     public static void main(String[] args) {
-        int[] nums = {1, 1, 1, 2, 2, 3};
+        int[] nums = {2, 2, 3, 1, 1, 1};
         System.out.println(Arrays.toString(topKFrequent(nums, 2)));
 
         nums = new int[] {1, 1, 1, 2, 2, 3, 3, 3, 5, 5, 5, 5, 5};
