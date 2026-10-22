@@ -19,15 +19,15 @@ public class BinaryTreeRightSideView {
 
         while ( !queue.isEmpty()) {
 
-            int size = queue.size();
+            int levelSize = queue.size();
 
-            for (int i=0; i<size; i++) {
+            for (int i=0; i<levelSize; i++) {
                 TreeNode node = queue.poll();
 
                 if (node != null) {
 
                     // IMP -->
-                    if (i == size -1) {
+                    if (i == levelSize -1) {
                         result.add(node.val);
                     }
 
